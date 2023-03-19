@@ -1,0 +1,60 @@
+import random
+print("Rozpoczynasz grę")
+print("Kamień, papier, nożyce")
+liczba_uczestnikow = int(input("Podaj ile jest uczestników gry. Wybierz 1 jeśli grasz sam bądź 2 jeśli chceie zagrać ze sobą: "))
+
+if liczba_uczestnikow ==1:
+    print("Wybrałeś grę z komputerem. Powodzenia!")
+    gracz_1 = input("Podaj swoje imie: ")
+    gracz_2 = "Komputer"
+    wybor_gracza_1 = input('%s : Wybierz kamień, papier lub nożyczki ' % gracz_1)
+    while wybor_gracza_1 == "kamień" or wybor_gracza_1 == "papier" or wybor_gracza_1 == "nożyczki":
+        break
+    else:
+        wybor_gracza_1 = input('%s : Wybierz poprawnie masz do wyboru: kamien papier albo nożyczki: ' % gracz_1)
+    opcje_komputera= ["kamień", "papier", "nożyczki"]
+    komputer = random.choice(opcje_komputera)
+    wybor_gracza_2 = komputer
+elif liczba_uczestnikow == 2:
+    print("Wybrałeś opcję 2 uczestników. Niech wygra lepszy!")
+    gracz_1 = input("Podaj imię gracza nr 1: ")
+    gracz_2 = input("Podaj imię gracza nr 2: ")
+    wybor_gracza_1 = input('%s : Wybierz kamień, papier lub nożyczki ' % gracz_1)
+    while wybor_gracza_1 == "kamień" or wybor_gracza_1 == "papier" or wybor_gracza_1 == "nożyczki":
+        break
+    else:
+        wybor_gracza_1 = input('%s : Wybierz poprawnie masz do wyboru: kamień papier albo nożyczki: ' % gracz_1)
+    wybor_gracza_2 = input('%s : Wybierz kamień, papier lub nożyczki ' % gracz_2)
+    while wybor_gracza_2 == "kamień" or wybor_gracza_2 == "papier" or wybor_gracza_2 == "nożyczki":
+        break
+    else:
+        wybor_gracza_2 = input('%s : Wybierz poprawnie masz do wyboru: kamień papier albo nożyczki: ' % gracz_2)
+
+else:
+    print("Źle wybrałeś liczbę uczestników. Powróć jak się zdecydujesz!")
+
+print("Gra się rozpocznie midzy: ")
+print(gracz_1 + " VS " + gracz_2)
+print(gracz_1 , "wybrał:", wybor_gracza_1)
+print(gracz_2 , "wybrał:", wybor_gracza_2)
+
+def porownaj (wybor_1, wybor_2):
+    if wybor_1 == wybor_2:
+        print("Nieprawdobne a jenak remis!")
+    elif wybor_1 == "kamień":
+        if wybor_2 == "nożyczki":
+            print("Wygrał gracz: ", gracz_1, "Gratulacje!")
+        elif wybor_2 == "papier":
+            print("Wygrał gracz: ", gracz_2, "Gratulacje!")
+    elif wybor_1 == "papier":
+        if wybor_2 == "nożyczki":
+            print("Wygrał gracz: ", gracz_2, "Gratulacje!")
+        elif wybor_2 == "kamień":
+            print("Wygrał gracz: ", gracz_1, "Gratulacje!")
+    elif wybor_1 == "nożyczki":
+        if wybor_2 == "papier":
+            print("Wygrał gracz: ", gracz_1, "Gratulacje!")
+        elif wybor_2 == "kamień":
+            print("Wygrał gracz: ", gracz_2, "Gratulacje!")
+    exit()
+print(porownaj(wybor_gracza_1,wybor_gracza_2))
